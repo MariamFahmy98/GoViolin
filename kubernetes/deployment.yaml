@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-violin-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-violin
+  template:
+    metadata:
+      labels:
+        app: go-violin
+    spec:
+      containers:
+        - name: go-violin-app 
+          image: mariamfahmy98/go-violin-app:latest
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            tcpSocket: 
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /duets
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
