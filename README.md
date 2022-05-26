@@ -80,6 +80,9 @@ Therefore, A Load Balancer will be created which will route the HTTP requests fr
   ```
   kubectl apply -f .
   ```
+  Here is a snapshot for sending a HTTP request to GoViolin application by visiting ```go-violin.mariamfahmy.rocks```:
+  
+  ![GoViolin Application](screenshots/application.png?raw=true "Title")
   
 # CI/CD pipeline stages
   - <b> Building stage:</b>           
